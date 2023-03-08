@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<title>Part 2b: Create a JSON</title>
+<style>
+    body {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: darkslategrey;
+        color: linen;
+        text-align: center;
+    }
+    h2, h3 { font-weight: lighter; }
+</style>
+</head>
+<body>
+    <header>
+        <h1 id="logo">Erynn's Playlist</h1>
+        <h2>Look through my favorite songs!</h2>
+    </header>
+    <section id="data">
+        <form>
+        <script>
+            fetch('https://erynn-gutierrez.github.io/songs/songlist.json')
+                .then(response => response.json())
+                .then(data => {
+                    // part 2, commented out for sake of display
+                    // document.getElementById('json-data').textContent = data;
+                    const jsonData = data;
+                    const genres = ["Alternative",
+                      "Electronic",
+                      "Funk",
+                      "Hip-Hop",
+                      "Indie",
+                      "J-Pop",
+                      "Neo-Soul",
+                      "Pop",
+                      "Rap",
+                      'Rock',
+                      "Soul"
+                    ];
+
+                    function makeSelect(minRange, maxRange) {
+                        var selectElement = document.createElement("select");
+                        selectElement.id = "genres";
+                        var optionElement = document.createElement("option");
+                        optionElement.textContent = 'All';
+                        selectElement.appendChild(optionElement);
+                        for (j = minRange; j <= maxRange; j++) {
+                            var optionElement = document.createElement("option");
+                            optionElement.textContent = genres[j];
+                            selectElement.appendChild(optionElement);
+                        }
+                        return selectElement;
+                    }
+
+                    document.body.appendChild(makeSelect(0, 10));
+
+                    const filterButton = document.createElement('input');
+                    filterButton.type = 'button';
+                    filterButton.value = 'Filter';
+                    filterButton.id = 'button';
+                    document.body.appendChild(filterButton);
+
+                    filterButton.onclick = function getGenre() {
+                        const dropDown = document.getElementById("genres");
+                        desiredGenre = dropDown.options[dropDown.selectedIndex].value;
+                        getSongsofGenre();
+                    }
+
+                    const songListDiv = document.createElement("div");
+                    document.body.appendChild(songListDiv);
+
+                    function displaySong(songData) {
+                        let s = "";
+                        s += "<h1>" + songData["song_title"] + "</h1>";
+                        s += "<h2>Artist(s): " + songData["artists"] + "</h2>";
+                        s += "<h3>Genre(s): " + songData["genres"] + "</h3>";
+                        s += "<h3>Released: " + songData["year"] + "</h3> <br>";
+                        return s;
+                    }
+
+                    function getSongsofGenre() {
+                        let s = "";
+                        for (let i = 0; i < jsonData.songs.length; i++) {
+                            const songData = jsonData.songs[i];
+                            const currGenres = songData["genres"];
+
+                            if (desiredGenre == "All" || currGenres.includes(desiredGenre)) {
+                                s += displaySong(songData);
+                            }
+                        }
+                        songListDiv.innerHTML = s;
+                    }
+                });
+        </script>
+        </form>
+    </section>
+</body>
+</html>

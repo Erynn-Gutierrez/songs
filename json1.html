@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<title>Part 1: Create a JSON</title>
+</head>
+<body>
+    <script>
+        var playlist =
+        [
+            {
+                'song_title': 'Feeling U, Feeling Me (Interlude)',
+                'artists': ['Alicia Keys'],
+                'genres': ['Neo-Soul','Electronic'],
+                'year': '2003'
+            },
+            {
+                'song_title': 'Independent Women, Pt. 1',
+                'artists': ["Destiny's Child"],
+                'genres': ['Funk','Soul','Pop'],
+                'year': '2001'
+            },
+            {
+                'song_title': 'Uncomfortable',
+                'artists': ['Wallows'],
+                'genres': ['Indie','Rock'],
+                'year': '2017'
+            },
+            {
+                'song_title': 'Chewing Gum',
+                'artists': ['Blood Orange','A$AP Rocky','Project Pat'],
+                'genres': ['Hip Hop','Funk','Soul'],
+                'year': '2018'
+            },
+            {
+                'song_title': 'She Plays Bass',
+                'artists': ['beabadoobee'],
+                'genres': ['Indie','Rock'],
+                'year': '2019'
+            },
+            {
+                'song_title': 'This Is A Life',
+                'artists': ['Mitski','David Byrne','Son Lux'],
+                'genres': ['Alternative'],
+                'year': '2022'
+            },
+            {
+                'song_title': 'ARE WE STILL FRIENDS?',
+                'artists': ['Tyler, The Creator'],
+                'genres': ['Hip-Hop'],
+                'year': '2019'
+            },
+            {
+                'song_title': 'I Feel',
+                'artists': ['The Sundays'],
+                'genres': ['Rock'],
+                'year': '1992'
+            },
+            {
+                'song_title': 'Time After Time',
+                'artists': ['Cyndi Lauper'],
+                'genres': ['Pop'],
+                'year': '1983'
+            },
+            {
+                'song_title': 'Pink Matter',
+                'artists': ['Frank Ocean','André 3000'],
+                'genres': ['Funk','Soul'],
+                'year': '2019'
+            },
+            {
+                'song_title': "Scaredy's World",
+                'artists': ['Lomelda','More Eaze'],
+                'genres': ['Rock','Alternative','Indie'],
+                'year': '2023'
+            },
+            {
+                'song_title': 'Blah Blah Blah',
+                'artists': ['Ke$ha','3OH!3'],
+                'genres': ['Electronic','Pop','House'],
+                'year': '2010'
+            },
+            {
+                'song_title': "Boy's a Liar Pt. 2",
+                'artists': ['Pink Pantheress','Ice Spice'],
+                'genres': ['Pop','Rap'],
+                'year': '2023'
+            },
+            {
+                'song_title': 'For Lovers',
+                'artists': ['Lamp'],
+                'genres': ['Pop','J-Pop'],
+                'year': '2004'
+            },
+            {
+                'song_title': 'Lovely Day',
+                'artists': ['Bill Withers'],
+                'genres': ['Pop','Soul','Funk'],
+                'year': '1977'
+            }
+        ]
+
+        strPlaylist  = JSON.stringify(playlist);
+        document.write(strPlaylist);
+    </script>
+</body>
+</html>
